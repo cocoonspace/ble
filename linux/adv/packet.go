@@ -237,7 +237,7 @@ func (p *Packet) Flags() (flags byte, present bool) {
 
 // LocalName returns the ShortName or CompleteName if it presents.
 func (p *Packet) LocalName() string {
-	if b := p.Field(shortName); b != nil {
+	if b := p.Field(shortName); len(b) > 0 {
 		return string(b)
 	}
 	return string(p.Field(completeName))
